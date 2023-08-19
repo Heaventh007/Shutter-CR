@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -28,7 +28,6 @@ using Siticone.UI.AnimatorNS;
 using Siticone.UI.WinForms;
 using Siticone.UI.WinForms.Enums;
 using XDevkit;
-using XRPCLib;
 
 namespace Auth.GG_Winform_Example
 {
@@ -39,9 +38,6 @@ namespace Auth.GG_Winform_Example
 			InitializeComponent();
 			ShutterRPC.Initialize();
 		}
-
-        XRPC xbConsole = new XRPC();
-
         public void Toast(int client, string Icon, string Title, string Desc, int Dur)
 		{
 			try
@@ -64,8 +60,6 @@ namespace Auth.GG_Winform_Example
 		{
 			if (Console.Connect(out Console, "default"))
 			{
-                xbConsole.Connect();
-
                 siticoneRoundedButton2.Text = "Re-Connect To Console";
 				siticoneRoundedButton2.ForeColor = Color.White;
 				Console.XNotify("Connected to Shutter successfully");
@@ -125,38 +119,38 @@ namespace Auth.GG_Winform_Example
 				255,
 				1
 			};
-			uint num = xbConsole.Call(Console.ResolveFunction("xam.xex", 1161), arguments);
+			uint num = Console.Call<uint>(Console.ResolveFunction("xam.xex", 1161), arguments);
 			object[] arguments2 = new object[]
 			{
 				1024,
 				1
 			};
-			uint num2 = xbConsole.Call(Console.ResolveFunction("xam.xex", 1161), arguments2);
+			uint num2 = Console.Call<uint>(Console.ResolveFunction("xam.xex", 1161), arguments2);
             
             object[] arguments3 = new object[]
 			{
 				8,
 				1
 			};
-			uint num3 = xbConsole.Call(Console.ResolveFunction("xam.xex", 1161), arguments3);
+			uint num3 = Console.Call<uint>(Console.ResolveFunction("xam.xex", 1161), arguments3);
 			object[] arguments4 = new object[]
 			{
 				12,
 				1
 			};
-			uint num4 = xbConsole.Call(Console.ResolveFunction("xam.xex", 1161), arguments4);
+			uint num4 = Console.Call<uint>(Console.ResolveFunction("xam.xex", 1161), arguments4);
 			object[] arguments5 = new object[]
 			{
 				32,
 				1
 			};
-			uint num5 = xbConsole.Call(Console.ResolveFunction("xam.xex", 1161), arguments5);
+			uint num5 = Console.Call<uint>(Console.ResolveFunction("xam.xex", 1161), arguments5);
 			object[] arguments6 = new object[]
 			{
 				32,
 				1
 			};
-			uint num6 = xbConsole.Call(Console.ResolveFunction("xam.xex", 1161), arguments6);
+			uint num6 = Console.Call<uint>(Console.ResolveFunction("xam.xex", 1161), arguments6);
 			Console.SetMemory(num, messagemethod(string_9));
 			Console.SetMemory(num2, messagemethod(string_10));
 			Console.WriteUInt32(num3, num6);
@@ -180,37 +174,37 @@ namespace Auth.GG_Winform_Example
 				num,
 				1
 			};
-            xbConsole.Call(Console.ResolveFunction("xam.xex", 1161), arguments8);
+			Console.Call<uint>(Console.ResolveFunction("xam.xex", 1161), arguments8);
 			object[] arguments9 = new object[]
 			{
 				num2,
 				1
 			};
-            xbConsole.Call(Console.ResolveFunction("xam.xex", 1161), arguments9);
+			Console.Call<uint>(Console.ResolveFunction("xam.xex", 1161), arguments9);
 			object[] arguments10 = new object[]
 			{
 				num3,
 				1
 			};
-            xbConsole.Call(Console.ResolveFunction("xam.xex", 1161), arguments10);
+			Console.Call<uint>(Console.ResolveFunction("xam.xex", 1161), arguments10);
 			object[] arguments11 = new object[]
 			{
 				num4,
 				1
 			};
-            xbConsole.Call(Console.ResolveFunction("xam.xex", 1161), arguments11);
+			Console.Call<uint>(Console.ResolveFunction("xam.xex", 1161), arguments11);
 			object[] arguments12 = new object[]
 			{
 				num5,
 				1
 			};
-            xbConsole.Call(Console.ResolveFunction("xam.xex", 1161), arguments12);
+			Console.Call<uint>(Console.ResolveFunction("xam.xex", 1161), arguments12);
 			object[] arguments13 = new object[]
 			{
 				num6,
 				1
 			};
-            xbConsole.Call(Console.ResolveFunction("xam.xex", 1161), arguments13);
+			Console.Call<uint>(Console.ResolveFunction("xam.xex", 1161), arguments13);
 		}
 
 		private byte[] messagemethod(string string_0)
@@ -2861,11 +2855,11 @@ namespace Auth.GG_Winform_Example
 			}
 			object[] array = new object[2];
 			array[0] = SMCMessage;
-            xbConsole.Call(xbConsole.ResolveFunction("xboxkrnl.exe", 41), array);
+			Console.Call<uint>(Console.ResolveFunction("xboxkrnl.exe", 41), array);
 			SMCMessage[0] = 137;
 			object[] array2 = new object[2];
 			array2[0] = SMCMessage;
-			xbConsole.Call(xbConsole.ResolveFunction("xboxkrnl.exe", 41), array2);
+			Console.Call<uint>(Console.ResolveFunction("xboxkrnl.exe", 41), array2);
 		}
 
 		public string smethod_19(string string_14)
