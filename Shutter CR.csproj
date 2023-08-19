@@ -166,7 +166,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="XRPC.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Auth\GG_Winform_Example\LoadingScreen.resx">
